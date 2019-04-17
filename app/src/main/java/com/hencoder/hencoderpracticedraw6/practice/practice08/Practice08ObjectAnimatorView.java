@@ -17,6 +17,15 @@ public class Practice08ObjectAnimatorView extends View {
     RectF arcRectF = new RectF();
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    public float getProgress() {
+        return progress;
+    }
+
+    public void setProgress(float progress) {
+        this.progress = progress;
+        invalidate();
+    }
+
     // TODO 为 progress 添加 getter 和 setter 方法（setter 方法记得加 invalidate()）
     float progress = 0;
 
@@ -46,10 +55,10 @@ public class Practice08ObjectAnimatorView extends View {
 
         paint.setColor(Color.parseColor("#E91E63"));
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeWidth(dpToPixel(15));
+        paint.setStrokeCap(Paint.Cap.SQUARE);
+        paint.setStrokeWidth(dpToPixel(5));
         arcRectF.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-        canvas.drawArc(arcRectF, 135, progress * 2.7f, false, paint);
+        canvas.drawArc(arcRectF, 180, progress * 3.6f, false, paint);
 
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);

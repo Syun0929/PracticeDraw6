@@ -26,6 +26,7 @@ public class Practice05MultiProperties extends ConstraintLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    boolean flag = true;
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -39,6 +40,12 @@ public class Practice05MultiProperties extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+                if(flag){
+                    imageView.animate().scaleX(1).scaleY(1).alpha(1).rotation(360).translationX(500);
+                }else{
+                    imageView.animate().scaleX(0).scaleY(0).alpha(0).rotation(0).translationX(-500);
+                }
+                flag = !flag;
             }
         });
     }

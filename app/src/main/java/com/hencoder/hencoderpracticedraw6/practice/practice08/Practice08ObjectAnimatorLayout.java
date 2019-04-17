@@ -1,5 +1,7 @@
 package com.hencoder.hencoderpracticedraw6.practice.practice08;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,7 +13,7 @@ import com.hencoder.hencoderpracticedraw6.R;
 public class Practice08ObjectAnimatorLayout extends RelativeLayout {
     Practice08ObjectAnimatorView view;
     Button animateBt;
-
+    ObjectAnimator objectAnimator ;
     public Practice08ObjectAnimatorLayout(Context context) {
         super(context);
     }
@@ -30,7 +32,7 @@ public class Practice08ObjectAnimatorLayout extends RelativeLayout {
 
         view = (Practice08ObjectAnimatorView) findViewById(R.id.objectAnimatorView);
         animateBt = (Button) findViewById(R.id.animateBt);
-
+        objectAnimator = ObjectAnimator.ofFloat(view,"progress",0,100);
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +40,7 @@ public class Practice08ObjectAnimatorLayout extends RelativeLayout {
                 // 1. 用 ObjectAnimator 创建 Animator 对象
                 // 2. 用 start() 执行动画
                 // *. 记得在 Practice08ObjectAnimatorView 中为 progress 添加 setter/ getter 方法！
+                objectAnimator.setDuration(1000).start();
             }
         });
     }
